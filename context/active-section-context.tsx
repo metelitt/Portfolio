@@ -1,8 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState } from "react";
-import { links } from "@/lib/data";
-
-type SectionName = (typeof links)[number]["name"];
+import type { SectionName } from "@/lib/types";
 
 type ActiveSectionProviderProps = {
   children: React.ReactNode;
@@ -11,6 +9,8 @@ type ActiveSectionProviderProps = {
 type ActiveSectionContextType = {
   activeSection: SectionName;
   setActiveSection: React.Dispatch<React.SetStateAction<SectionName>>;
+  timeOfLastClick:number;
+  setTimeOfLastClick:React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
@@ -21,11 +21,14 @@ export default function ActiveSectionContextProvider({
   children,
 }: ActiveSectionProviderProps) {
   const [activeSection, setActiveSection] = useState<SectionName>("Главная");
+  const [timeOfLastClick,setTimeOfLastClick]=useState(0) //Это для того чтобы при клике кружок навгации двигался без остновки 
   return (
     <ActiveSectionContext.Provider
       value={{
         activeSection,
         setActiveSection,
+        timeOfLastClick,
+        setTimeOfLastClick
       }}
     >
       {children}
