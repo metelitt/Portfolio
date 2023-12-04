@@ -10,11 +10,14 @@ import Link from "next/link";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 export default function Intro() {
-const {ref}=useSectionInView('Главная',0.5)
-const { setActiveSection, setTimeOfLastClick } =
-useActiveSectionContext();
+  const { ref } = useSectionInView("Главная", 0.5);
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   return (
-    <section id="home" className="mb-2 max-w-[50rem] text-center sm:mb-0  scroll-mt-[100rem]" ref={ref}>
+    <section
+      id="home"
+      className="mb-2 max-w-[50rem] text-center sm:mb-0  scroll-mt-[100rem]"
+      ref={ref}
+    >
       <div className="flex items-center justify-center">
         <div className="relative ">
           <motion.div
@@ -69,31 +72,40 @@ useActiveSectionContext();
         <Link
           href="#contact"
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-nine focus:scale-110 hover:scale-105 hover:bg-gray-950 transition"
-          onClick={()=>{
-            setActiveSection('Контакты');
-            setTimeOfLastClick(Date.now())
+          onClick={() => {
+            setActiveSection("Контакты");
+            setTimeOfLastClick(Date.now());
           }}
         >
           Связаться со мной{" "}
           <BsArrowRight className="opacity-70  group-hover:translate-x-4 transition" />
         </Link>
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-nine  active:scale-105 focus:scale-110 hover:scale-105 transition cursor-pointer borderBlack"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-nine  active:scale-105 focus:scale-110 hover:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="/CV.pdf"
           download
         >
           Скачать резюме{" "}
           <HiDownload className="opacity-60 group-hover:translate-y-1" />
         </a>
-        <a className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full borderBlack focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 transition cursor-pointer" href="https://www.instagram.com/metelitt/" target="_blank">
+        <a
+          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full borderBlack focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 transition cursor-pointer dark:bg-white/10 dark:text-white/60"
+          href="https://www.instagram.com/metelitt/"
+          target="_blank"
+        >
           <FaInstagram />
         </a>
-        <a className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full  focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 transition cursor-pointer"href="https://github.com/metelitt" target="_blank">
-          <FaGithubSquare/>
+        <a
+          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full  focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 transition cursor-pointer dark:bg-white/10 dark:text-white/60"
+          href="https://github.com/metelitt"
+          target="_blank"
+        >
+          <FaGithubSquare />
         </a>
         <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full borderBlack focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 transition cursor-pointer"
-          href="tg://resolve?domain=metelitt" target="_blank"
+          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full borderBlack focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 transition cursor-pointer dark:bg-white/10 dark:text-white/60"
+          href="tg://resolve?domain=metelitt"
+          target="_blank"
         >
           <FaTelegram />
         </a>

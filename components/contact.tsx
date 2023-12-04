@@ -27,7 +27,7 @@ function Contact() {
       }}
     >
       <SectionHeading>Контакты</SectionHeading>
-      <p className="text-gray-700 -mt-6">
+      <p className="text-gray-700 -mt-6 dark:text-white/80">
         Cвяжитесь со мной через почту{" "}
         <a className="underline" href="mailto:mavlyutov-1999@inbox.ru">
           mavlyutov-1999@inbox.ru
@@ -36,26 +36,30 @@ function Contact() {
       </p>
       <form
         action={async (formData) => {
-          const {data,error}=await sendEmail(formData);
-          if(error){
-            toast.error('Что то не работае,a если бы работала я бы уже был мидлом')
+          const { data, error } = await sendEmail(formData);
+          if (error) {
+            toast.error(
+              "Что то не работае,a если бы работала я бы уже был мидлом"
+            );
             return;
           }
-          toast.success('Ваше письмо успешно отправлено.Отвечу в ближайшее время')
+          toast.success(
+            "Ваше письмо успешно отправлено.Отвечу в ближайшее время"
+          );
         }}
-        className="mt-10 flex flex-col "
+        className="mt-10 flex flex-col dark:text-black"
       >
         <input
           name="senderEmail"
           type="email"
-          className="h-14 px-4 rounded-lg borderBlack"
+          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           placeholder="Ваш email"
           required={true}
           maxLength={500}
         />
         <textarea
           name="message"
-          className="h-52 my-3 rounded-lg borderBlack p-4"
+          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           placeholder="Ваше сообщение"
           required
           maxLength={5000}
